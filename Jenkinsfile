@@ -33,5 +33,19 @@ pipeline {
        echo "Deploying to staging..."
      }
    }
+    stage('Deploy to Production') {
+     steps {
+       echo "Deploying to production..."
+     }
+   }
+ }
+ post {
+   success {
+     echo "build succeeded"
+   }
+   failure {
+     echo "Build failed"
+   }
+ }
   }
 }
