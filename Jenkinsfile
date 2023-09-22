@@ -3,8 +3,8 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'chmod a+x run_build_script.sh'
-        sh './run_build_script.sh'
+        bat 'cacls run_build_script.sh /E /G Users:R'
+        bat 'takeown /F run_build_script.sh'
       }
     }
     stage('Test') {
